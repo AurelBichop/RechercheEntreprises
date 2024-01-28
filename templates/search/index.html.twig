@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Recherhe d'entreprise{% endblock %}
+
+{% block body %}
+    <h1>Rechercher une entreprise</h1>
+    {{ form(form) }}
+
+    {% if results|length > 0 %}
+
+        <h2>Résultats de la recherche</h2>
+        {% for result in results %}
+            <article>
+                <ul>
+                    <li>{{ result.nom_complet }}</li>
+                    <li>{{ result.siren }}</li>
+                    <li>{{ result.siege.adresse }}</li>
+                </ul>
+            </article>
+        {% endfor %}
+
+    {% endif %}
+
+{% endblock %}
